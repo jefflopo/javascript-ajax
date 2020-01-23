@@ -19,6 +19,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }).single('arquivo')
 
+app.post('/formulario', (req, res) => {
+    res.send({
+        ...req.body,
+        id: 1
+    })
+})
+
 app.post('/upload', (req, res) => {
     upload(req, res, err => {
         if(err) {
@@ -31,4 +38,4 @@ app.post('/upload', (req, res) => {
 
 //app.get('/teste', (req, res) => res.send(new Date()))
 
-app.listen(8081, () => console.log('Fufando........'))
+app.listen(8081, () => console.log('Fufando.....POrt 8081...'))
